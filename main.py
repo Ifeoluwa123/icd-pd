@@ -4,7 +4,8 @@ from huggingface_hub import InferenceClient
 from pydantic import BaseModel
 
 app = FastAPI() 
-os.environ["HF_TOKEN"] = "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"
+# os.environ["HF_TOKEN"] = "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"
+HF_TOKEN = os.environ.get("HF_TOKEN")
 client = InferenceClient()
 
 
@@ -34,6 +35,7 @@ def predic_genai(input:Input):
     messages=messages
     )
     return {"Response": response["choices"][0]["message"]["content"]}
+
 
 
 
