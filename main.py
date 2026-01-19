@@ -12,6 +12,10 @@ client = InferenceClient()
 def read_root():
     return {"message": "Hello, FastA"}
 
+@app.get("/result")
+def read_root():
+    return {"result": "Works fine"}
+
 
 @app.get("/items/{item_id}")
 
@@ -34,6 +38,7 @@ def predic_genai(input:Input):
     messages=messages
     )
     return {"Response": response["choices"][0]["message"]["content"]}
+
 
 
 
