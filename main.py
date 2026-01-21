@@ -13,6 +13,9 @@ def read_root():
     return {"message": "Hello, FastA"}
 
 
+@app.edit("/")
+def read_root():
+    return {"message": "Hello, FastA"}
 
 
 @app.get("/items/{item_id}")
@@ -36,6 +39,7 @@ def predic_genai(input:Input):
     messages=messages
     )
     return {"Response": response["choices"][0]["message"]["content"]}
+
 
 
 
